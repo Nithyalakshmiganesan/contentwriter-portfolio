@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1e2022;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+
+        /* Popup */
+        #thankPopup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #popupBox {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Hire Me</h2>
+
+    <form id="hireForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="project" placeholder="Project Type (Website, Content, etc.)" required>
+        <textarea name="message" placeholder="Describe your project" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<!-- Thank You Popup -->
+<div id="thankPopup">
+    <div id="popupBox">
+        <h3>Thank You!</h3>
+        <p>Your form has been submitted. I will contact you within 24 hours.</p>
+    </div>
+</div>
+
+<script>
+document.getElementById("hireForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    let form = document.getElementById("hireForm");
+    let formData = new FormData(form);
+
+    // Convert to JSON for SheetDB
+    let data = {
+        data: Object.fromEntries(formData)
+    };
+
+    // Add date column
+    data.data.date = new Date().toLocaleString();
+
+    // SheetDB API URL
+    const SHEETDB_URL = "https://sheetdb.io/api/v1/6bc9m4uq3tx6b";
+
+    let response = await fetch(SHEETDB_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        document.getElementById("thankPopup").style.display = "flex";
+        form.reset();
+    } else {
+        alert("Something went wrong. Try again!");
+    }
+});
+</script>
+
+</body>
+</html>
