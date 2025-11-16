@@ -1,37 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <title>Landing Page Sample – MiniMag Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: Arial; padding: 20px; max-width: 900px; margin: auto; }
-    h1 { color: #000; }
-    a { text-decoration: none; color: blue; }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landing Page Sample — Gold-Heart Magnet</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  body{font-family:Inter,Arial;margin:0;background:#fffaf8;color:#222}
+  .wrap{max-width:900px;margin:30px auto;padding:20px}
+  .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+  .hero img{flex:0 0 360px;height:260px;object-fit:cover;border-radius:12px}
+  .hero .text h1{margin:0 0 12px}
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+  .feature{background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+  .btn{background:#d48675;padding:10px 16px;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;display:inline-block;margin-top:12px}
+</style>
 </head>
 <body>
+  <main class="wrap">
+    <a href="index.html">← Back</a>
+    <div class="hero">
+     
+      <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80&auto=format&fit=crop" 
+     alt="Freelancer working on laptop">
 
-  <h1>Landing Page Sample – Gold-Heart Magnet Collection</h1>
-  <p>This is a sample of a high-converting landing page written for MiniMag’s Limited Edition Gold-Heart Magnet launch.</p>
+    <div class="text">
+        <h1>Limited Edition — Gold-Heart Magnet</h1>
+        <p>Only 200 pieces ever made. A premium gold-finish heart magnet handcrafted for keepsakes and gifting.</p>
+        <a class="btn" href="hire.html">Reserve Yours</a>
+        <div class="features" style="margin-top:18px">
+          <div class="feature"><strong>Premium Finish</strong><div style="color:#666">Matte gold plating, scratch resistant</div></div>
+          <div class="feature"><strong>Strong Grip</strong><div style="color:#666">Holds photos & notes securely</div></div>
+          <div class="feature"><strong>Gift Ready</strong><div style="color:#666">Comes in kraft box with card</div></div>
+        </div>
+      </div>
+    </div>
 
-  <hr>
-
-  <h2>Headline</h2>
-  <p><b>“A Magnet That Means More — Limited Gold-Heart Edition (Only 200 pieces!)”</b></p>
-
-  <h2>Emotional Story</h2>
-  <p>Every moment deserves to be remembered. This special gold-heart edition was created to keep love, travel, and memories alive…</p>
-
-  <h2>Features</h2>
-  <ul>
-    <li>Gold premium finishing</li>
-    <li>MiniMag handcrafted design</li>
-    <li>Durable, long-lasting magnet</li>
-    <li>Comes with gift-ready packaging</li>
-  </ul>
-
-  <br>
-  <a href="index.html">⬅ Back</a>
+    <section style="margin-top:22px">
+      <h3>Why collectors love it</h3>
+      <p>Handcrafted details, compact size and a luxurious finish make this magnet both decorative and meaningful.</p>
+    </section>
+  </main>
 </body>
 </html>
-
